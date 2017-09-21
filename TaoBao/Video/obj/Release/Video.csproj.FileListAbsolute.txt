@@ -1,0 +1,13 @@
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\bin\Release\Video.exe
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\bin\Release\Video.pdb
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\bin\Release\CSkin.dll
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\bin\Release\HtmlAgilityPack.dll
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\bin\Release\HttpCodeLib.dll
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\bin\Release\CSkin.xml
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\bin\Release\HtmlAgilityPack.pdb
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\bin\Release\HtmlAgilityPack.xml
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\obj\Release\Video.frmMain.resources
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\obj\Release\Video.Properties.Resources.resources
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\obj\Release\Video.csproj.GenerateResource.Cache
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\obj\Release\Video.exe
+C:\Users\Hupengpeng\Documents\Visual Studio 2012\Projects\TaoBao\Video\obj\Release\Video.pdb

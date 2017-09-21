@@ -1,0 +1,3 @@
+C:\Users\Administrator\Desktop\TaoBao\Video\obj\x86\Debug\Video.frmMain.resources
+C:\Users\Administrator\Desktop\TaoBao\Video\obj\x86\Debug\Video.Properties.Resources.resources
+C:\Users\Administrator\Desktop\TaoBao\Video\obj\x86\Debug\Video.csproj.GenerateResource.Cache
