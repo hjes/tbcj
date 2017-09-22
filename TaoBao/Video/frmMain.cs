@@ -23,7 +23,7 @@ namespace Video
         XJHTTP http = new XJHTTP();
         private void btndownload_Click(object sender, EventArgs e)
         { 
-            string result=util.execute(txtItemUrl.Text);
+            string result=util.execute(txtItemUrl.Text,"自定义");
             string[] results=result.Split('&');
             int index = this.dgvTask.Rows.Add();
             this.dgvTask.Rows[index].Cells[0].Value = results[0].Trim();
@@ -52,15 +52,14 @@ namespace Video
         {
             dgvShopTask.Rows[dgvShopTask.CurrentRow.Index].Cells[2].Value = "正在下载";
             string shopurl=dgvShopTask.Rows[dgvShopTask.CurrentRow.Index].Cells[1].Value.ToString();
-            string result = util.execute(shopurl);
+             string shopname=dgvShopTask.Rows[dgvShopTask.CurrentRow.Index].Cells[0].Value.ToString();
+             string result = util.execute("http://123.184.41.233:81/s/ajax?method=check&uid=" + txtAccount.Text + "&shopurl=" + shopurl, shopname);
             string[] results = result.Split('&');
             dgvShopTask.Rows[dgvShopTask.CurrentRow.Index].Cells[2].Value = results[1];
-           
         }
-
         private void frmMain_Load(object sender, EventArgs e)
         {
-           
+            txtHtml.Text = http.GetHtml("http://123.184.41.233:81/s/ajax?method=getAd").Html;
         }
 
         private void 下载全部ToolStripMenuItem_Click(object sender, EventArgs e)
@@ -73,13 +72,28 @@ namespace Video
                 {
                     dgvShopTask.Rows[i].Cells[2].Value = "正在下载";
                     string shopurl = dgvShopTask.Rows[i].Cells[1].Value.ToString();
-                    string result = util.execute(shopurl);
+                    string shopname = dgvShopTask.Rows[i].Cells[0].Value.ToString();
+                    string result = util.execute("http://123.184.41.233:81/s/ajax?method=check&uid=" + txtAccount.Text.Trim() + "&shopurl=" + shopurl,shopname);
                     string[] results = result.Split('&');
                     dgvShopTask.Rows[i].Cells[2].Value = results[1];
+                    if (results[0] == "500") break;
+                    Delay(2);
                 }
             }   
         }
-
+        public static bool Delay(int delayTime)
+        {
+            DateTime now = DateTime.Now;
+            int s;
+            do
+            {
+                TimeSpan spand = DateTime.Now - now;
+                s = spand.Seconds;
+                Application.DoEvents();
+            }
+            while (s < delayTime);
+            return true;
+        }
      
     }
 }

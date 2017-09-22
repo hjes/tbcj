@@ -12,31 +12,35 @@ namespace Video
     public  class Util
     {
         XJHTTP http = new XJHTTP();
-        private string uid = "";
-        private string vid = "";
-        private string videourl = "";
         private string shopname = "";
         //解析宝贝url并下载视频
-        public string execute(string url)
+        public string execute(string url,string shopname)
         {
             try
             {
                 HttpResults req = http.GetHtml(url);
                 string html = req.Html;
-                shopname = http.GetStringMid(html, "<title>", "</title>");
-                if (html.IndexOf("videoId") == -1) return shopname+"&该商品没有小视频";
-                uid = http.GetStringMid(html, "userid:", ";");
-                vid = http.GetStringMid(html, "videoId\":\"", "\"");
-                string fileurl = "http://cloud.video.taobao.com/videoapi/info.php?vid=" + vid + "&uid=" + uid + "&p=1&t=6";
-                html = http.GetHtml(fileurl).Html;
-                videourl = http.GetStringMid(html, "video_url>", "</video_");
-                CopyFileByUrl(videourl);
+                string code = http.GetStringMid(html, "code\":\"", "\"");
+                string msg = http.GetStringMid(html, "msg\":\"", "\"");
+                if (code == "200")
+                {
+                    this.shopname = shopname;
+                    CopyFileByUrl(msg);
+                    return code + "&" + "下载成功";
+
+                }
+                else {
+                    if (code != "404") {
+                        MessageBox.Show(msg);
+                    }
+                    return code + "&" + msg;
+                }
+             
             }
             catch (Exception)
             {
-                return shopname + "&发生错误";
+                return "500&发生错误";
             }
-            return shopname + "&下载成功";
         }
 
         //下载文件

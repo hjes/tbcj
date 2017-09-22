@@ -37,3 +37,17 @@ D:\soft\userSoft\Tencent\QQDoc\1605000001\FileRecv\TaoBao\Video\obj\Debug\Video.
 D:\soft\userSoft\Tencent\QQDoc\1605000001\FileRecv\TaoBao\Video\obj\Debug\Video.frmMain.resources
 D:\soft\userSoft\Tencent\QQDoc\1605000001\FileRecv\TaoBao\Video\obj\Debug\Video.Properties.Resources.resources
 D:\soft\userSoft\Tencent\QQDoc\1605000001\FileRecv\TaoBao\Video\obj\Debug\Video.csproj.GenerateResource.Cache
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\obj\Debug\Video.exe
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\obj\Debug\Video.pdb
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\bin\Debug\Video.exe
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\bin\Debug\Video.pdb
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\bin\Debug\CSkin.dll
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\bin\Debug\HtmlAgilityPack.dll
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\bin\Debug\HttpCodeLib.dll
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\bin\Debug\CSkin.xml
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\bin\Debug\HtmlAgilityPack.pdb
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\bin\Debug\HtmlAgilityPack.xml
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\obj\Debug\Video.csprojResolveAssemblyReference.cache
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\obj\Debug\Video.frmMain.resources
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\obj\Debug\Video.Properties.Resources.resources
+C:\Users\Hupengpeng\Desktop\TaoBao\Video\obj\Debug\Video.csproj.GenerateResource.Cache
