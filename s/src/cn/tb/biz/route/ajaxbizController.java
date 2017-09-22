@@ -84,9 +84,22 @@ public class ajaxbizController extends BaseServlet {
 			throws Exception {
 		Dbutil.executeSql("create table users(name varchar(64),date varchar(150));");// 创建一个表，两列
 		Dbutil.executeSql("insert into users values('freeuser','"+ DateUtil.currentDateTimeString() + "');");
+		Dbutil.executeSql("create table softAd(text clob);");
 		resp.getWriter().print("写入数据成功");
 	}
-
+	public void upAd(HttpServletRequest req, HttpServletResponse resp)
+			throws Exception {
+		req.setCharacterEncoding("UTF-8");
+		String adtext=req.getParameter("adtext");
+		Dbutil.executeSql("update softAd set text='"+adtext+"'");// 创建一个表，两列
+		resp.getWriter().print("更改公告成功");
+	}
+	public void getAd(HttpServletRequest req, HttpServletResponse resp)
+			throws Exception {
+		List<Map<String, Object>> list = Dbutil.selectSql("select * from softAd"); // 查询数据
+		String adtext=list.get(0).get("text").toString();
+		resp.getWriter().print(adtext);
+	}
 	private JSONObject geturl(String shopurl) {
 		String html = HttpRequest.sendGet(shopurl);
 		JSONObject json = new JSONObject();

@@ -18,7 +18,7 @@ public class HttpRequest {
 	 /**
      * 向指定URL发送GET方法的请求
      * 
-     * @param url
+     * @param url 
      *            发送请求的URL
      * @param param
      *            请求参数，请求参数应该是 name1=value1&name2=value2 的形式。
