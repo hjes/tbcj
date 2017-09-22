@@ -3,53 +3,53 @@ package cn.tb.util;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.ResultSetMetaData;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class Dbutil {
 
-	private static Connection conn = null;
-
-	static {
-		OpenConnection();
-	}
-	
-	private static void CloseConnection() throws SQLException{
-		if(conn!=null){
-			conn.close();
-		}
-	}
-	private static void OpenConnection(){
-		try {
-			Class.forName("org.sqlite.JDBC");
-			conn = DriverManager.getConnection("jdbc:sqlite:/lincj.db");
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-	}
-	
  
 	
-	
-	public static void main(String[] args) {
-		try {
-			Statement stat = conn.createStatement();
-			stat.executeUpdate("create table table1(name varchar(64));");// 创建一个表，两列
-			stat.executeUpdate("insert into table1 values('aa',12);"); // 插入数据
-			stat.executeUpdate("insert into table1 values('bb',13);");
-			stat.executeUpdate("insert into table1 values('cc',20);");
-			ResultSet rs = stat.executeQuery("select * from table1;"); // 查询数据
-
-			while (rs.next()) { // 将查询到的数据打印出来
-				System.out.print("name = " + rs.getString("name") + " "); // 列属性一
-				System.out.println("age = " + rs.getString("age")); // 列属性二
-			}
-			rs.close();
-			stat.close();
-			conn.close(); // 结束数据库的连接
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public static int executeSql(String sql) throws  Exception{
+		Class.forName("org.sqlite.JDBC");
+		Connection conn = DriverManager.getConnection("jdbc:sqlite:/lincj.db");
+		Statement stat = conn.createStatement();
+		int i = stat.executeUpdate(sql);
+		stat.close();
+		conn.close();
+		return i;
 	}
+	public static  List<Map<String, Object>> selectSql(String sql) throws  Exception{
+		 List<Map<String, Object>> list = new ArrayList<>();
+		Class.forName("org.sqlite.JDBC");
+		Connection conn = DriverManager.getConnection("jdbc:sqlite:/lincj.db");
+		Statement stat = conn.createStatement();
+		ResultSet rs=stat.executeQuery(sql);
+	    ResultSetMetaData rsmd = rs.getMetaData();
+        List<String> columnList = new ArrayList<String>();
+        for (int i = 0; i < rsmd.getColumnCount(); i++) {
+            columnList.add(rsmd.getColumnName(i + 1));
+        }
+        // 循环遍历记录
+        while (rs.next()) {
+            Map<String, Object> obj = new HashMap<>();
+            // 遍历一个记录中的所有列
+            for (int i = 0; i < columnList.size(); i++) {
+                // 获取列名
+                String column = columnList.get(i);
+                obj.put(column, rs.getObject(column));
+            }
+            list.add(obj);
+        }
+        stat.close();
+		conn.close();
+		return list;
+	}
+	
+	 
 
 }
