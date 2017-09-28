@@ -22,8 +22,8 @@ namespace Video
         Util util = new Util();
         XJHTTP http = new XJHTTP();
         private void btndownload_Click(object sender, EventArgs e)
-        { 
-            string result=util.execute(txtItemUrl.Text,"自定义");
+        {
+            string result = util.execute("http://123.184.41.233:81/s/ajax?method=check&v=1.1&uid=" + txtAccount.Text + "&shopurl=" + txtItemUrl.Text.Trim(), "自定义");
             string[] results=result.Split('&');
             int index = this.dgvTask.Rows.Add();
             this.dgvTask.Rows[index].Cells[0].Value = results[0].Trim();
@@ -53,7 +53,7 @@ namespace Video
             dgvShopTask.Rows[dgvShopTask.CurrentRow.Index].Cells[2].Value = "正在下载";
             string shopurl=dgvShopTask.Rows[dgvShopTask.CurrentRow.Index].Cells[1].Value.ToString();
              string shopname=dgvShopTask.Rows[dgvShopTask.CurrentRow.Index].Cells[0].Value.ToString();
-             string result = util.execute("http://123.184.41.233:81/s/ajax?method=check&uid=" + txtAccount.Text + "&shopurl=" + shopurl, shopname);
+             string result = util.execute("http://123.184.41.233:81/s/ajax?method=check&v=1.1&uid=" + txtAccount.Text + "&shopurl=" + shopurl, shopname);
             string[] results = result.Split('&');
             dgvShopTask.Rows[dgvShopTask.CurrentRow.Index].Cells[2].Value = results[1];
         }
@@ -73,11 +73,11 @@ namespace Video
                     dgvShopTask.Rows[i].Cells[2].Value = "正在下载";
                     string shopurl = dgvShopTask.Rows[i].Cells[1].Value.ToString();
                     string shopname = dgvShopTask.Rows[i].Cells[0].Value.ToString();
-                    string result = util.execute("http://123.184.41.233:81/s/ajax?method=check&uid=" + txtAccount.Text.Trim() + "&shopurl=" + shopurl,shopname);
+                    string result = util.execute("http://123.184.41.233:81/s/ajax?method=check&v=1.1&uid=" + txtAccount.Text.Trim() + "&shopurl=" + shopurl, shopname);
                     string[] results = result.Split('&');
                     dgvShopTask.Rows[i].Cells[2].Value = results[1];
                     if (results[0] == "500") break;
-                    Delay(2);
+                    Delay(5);
                 }
             }   
         }

@@ -365,8 +365,7 @@
             this.txtShopUrl.IconMouseState = CCWin.SkinClass.ControlState.Normal;
             this.txtShopUrl.IsPasswordChat = '\0';
             this.txtShopUrl.IsSystemPasswordChar = false;
-            this.txtShopUrl.Lines = new string[] {
-        "https://hs527.taobao.com"};
+            this.txtShopUrl.Lines = new string[0];
             this.txtShopUrl.Location = new System.Drawing.Point(93, 3);
             this.txtShopUrl.Margin = new System.Windows.Forms.Padding(0);
             this.txtShopUrl.MaxLength = 32767;
@@ -390,11 +389,9 @@
             this.txtShopUrl.SkinTxt.Name = "BaseText";
             this.txtShopUrl.SkinTxt.Size = new System.Drawing.Size(389, 18);
             this.txtShopUrl.SkinTxt.TabIndex = 0;
-            this.txtShopUrl.SkinTxt.Text = "https://hs527.taobao.com";
             this.txtShopUrl.SkinTxt.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
             this.txtShopUrl.SkinTxt.WaterText = "请输入店铺地址";
             this.txtShopUrl.TabIndex = 9;
-            this.txtShopUrl.Text = "https://hs527.taobao.com";
             this.txtShopUrl.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
             this.txtShopUrl.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
             this.txtShopUrl.WaterText = "请输入店铺地址";
@@ -583,6 +580,7 @@
             this.label3.Size = new System.Drawing.Size(41, 12);
             this.label3.TabIndex = 6;
             this.label3.Text = "账户：";
+            this.label3.Visible = false;
             // 
             // txtAccount
             // 
@@ -593,7 +591,8 @@
             this.txtAccount.IconMouseState = CCWin.SkinClass.ControlState.Normal;
             this.txtAccount.IsPasswordChat = '\0';
             this.txtAccount.IsSystemPasswordChar = false;
-            this.txtAccount.Lines = new string[0];
+            this.txtAccount.Lines = new string[] {
+        "freeuser"};
             this.txtAccount.Location = new System.Drawing.Point(113, 225);
             this.txtAccount.Margin = new System.Windows.Forms.Padding(0);
             this.txtAccount.MaxLength = 32767;
@@ -617,10 +616,13 @@
             this.txtAccount.SkinTxt.Name = "BaseText";
             this.txtAccount.SkinTxt.Size = new System.Drawing.Size(389, 18);
             this.txtAccount.SkinTxt.TabIndex = 0;
+            this.txtAccount.SkinTxt.Text = "freeuser";
             this.txtAccount.SkinTxt.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
             this.txtAccount.SkinTxt.WaterText = "请输入账户";
             this.txtAccount.TabIndex = 7;
+            this.txtAccount.Text = "freeuser";
             this.txtAccount.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
+            this.txtAccount.Visible = false;
             this.txtAccount.WaterColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(127)))), ((int)(((byte)(127)))));
             this.txtAccount.WaterText = "请输入账户";
             this.txtAccount.WordWrap = true;
@@ -678,7 +680,7 @@
             this.Name = "frmMain";
             this.ShadowColor = System.Drawing.Color.Transparent;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "淘宝视频下载工具";
+            this.Text = "淘宝视频下载工具-52破解桃花依旧笑春风";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmMain_FormClosing);
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.frmMain_FormClosed);
             this.Load += new System.EventHandler(this.frmMain_Load);

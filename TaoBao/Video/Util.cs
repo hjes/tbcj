@@ -31,7 +31,14 @@ namespace Video
                 }
                 else {
                     if (code != "404") {
-                        MessageBox.Show(msg);
+                        if (msg == "" || msg == null)
+                        {
+                            MessageBox.Show("服务器链接异常");
+                        }
+                        else {
+                            MessageBox.Show(msg);
+                        }
+                        
                     }
                     return code + "&" + msg;
                 }
