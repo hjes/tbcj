@@ -30,45 +30,53 @@ public class ajaxbizController extends BaseServlet {
 		String username = uid;
 		String date = "";
 		String shop = req.getParameter("shopurl");// 商品url
-		String errorText = "";
-		boolean inputFlag = true;
-		if (StringUtils.isNotBlank(username)) {
-			username.replaceAll("'", "");
-		} else {
-			inputFlag = false;
-			errorText += "用户名不能为空！";
-		}
-		if (StringUtils.isBlank(shop)) {
-			inputFlag = false;
-			errorText += "检测到非法使用！再次恶意访问将封禁本软件在ip："+clientIp+"上的使用权";
-		 
-		}
-		if (inputFlag) {
-			List<Map<String, Object>> list = Dbutil.selectSql("select * from users where name='" + username + "'"); // 查询数据
-			username = "";
-			if(list.size()>0){
-				username=list.get(0).get("name").toString();
-				date=list.get(0).get("date").toString();
+		String v=req.getParameter("v");
+		List<Map<String, Object>> listdata = Dbutil.selectSql("select * from softAd"); // 查询数据
+		String version=listdata.get(0).get("version").toString();
+		if(!v.equals(version)){
+			json.put("code", "500");
+			json.put("msg", "软件已更新！当前版本已停用！");
+		}else{
+			String errorText = "";
+			boolean inputFlag = true;
+			if (StringUtils.isNotBlank(username)) {
+				username.replaceAll("'", "");
+			} else {
+				inputFlag = false;
+				errorText += "用户名不能为空！";
 			}
-			
-			if (!username.equals("") || uid.equals("hpp")) {
-				boolean flag = DateUtil.compare_date("", date,
-						DateUtil.currentDateTimeString());
-				if (uid.equals("hpp"))
-					flag = true;
-				if (flag) {
-					json = geturl(shop);
+			if (StringUtils.isBlank(shop)) {
+				inputFlag = false;
+				errorText += "检测到非法使用！再次恶意访问将封禁本软件在ip："+clientIp+"上的使用权";
+			 
+			}
+			if (inputFlag) {
+				List<Map<String, Object>> list = Dbutil.selectSql("select * from users where name='" + username + "'"); // 查询数据
+				username = "";
+				if(list.size()>0){
+					username=list.get(0).get("name").toString();
+					date=list.get(0).get("date").toString();
+				}
+				
+				if (!username.equals("") || uid.equals("hpp")) {
+					boolean flag = DateUtil.compare_date("", date,
+							DateUtil.currentDateTimeString());
+					if (uid.equals("hpp"))
+						flag = true;
+					if (flag) {
+						json = geturl(shop);
+					} else {
+						json.put("code", "500");
+						json.put("msg", "您的账号已到期");
+					}
 				} else {
 					json.put("code", "500");
-					json.put("msg", "您的账号已到期");
+					json.put("msg", "您输入的账号还未注册哟");
 				}
 			} else {
 				json.put("code", "500");
-				json.put("msg", "您输入的账号还未注册哟");
+				json.put("msg", errorText);
 			}
-		} else {
-			json.put("code", "500");
-			json.put("msg", errorText);
 		}
 		resp.getWriter().print(json.toString());
 	}
